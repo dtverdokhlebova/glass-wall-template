@@ -1,0 +1,118 @@
+.ui-input {
+  position: relative;
+  input {
+    width: 100%;
+    padding: 10px 12px 9px;
+    font-size: 22px;
+    line-height: 1.5;
+    font-family: $fontOS;
+    color: $white;
+    background: transparent;
+    border: 1px solid $grey;
+    border-radius: 7px;
+    outline: none;
+    transition: $transition;
+    @include media-laptop {
+      padding: 9px 12px 7px;
+      font-size: 18px;
+    }
+    &:focus {
+      border-color: $white;
+    }
+    &.parsley-error {
+      border-color: $error;
+    }
+  }
+  &__files {
+    margin-top: 10px;
+    &:empty {
+      margin-top: 0;
+    }
+  }
+  &__file {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font: 14px/20px $fontOS;
+    cursor: pointer;
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+    &-del {
+      padding: 0;
+      background: transparent;
+      border: 0;
+      color: inherit;
+      opacity: 0.8;
+      transition: $transition;
+      cursor: inherit;
+      &:focus {
+        outline: none;
+      }
+      @include media-hover {
+        opacity: 1;
+      }
+      svg {
+        display: block;
+        color: inherit;
+      }
+    }
+  }
+  .parsley-errors-list {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    font-size: 12px;
+    font-family: $fontOS;
+    margin: 0;
+    padding: 0;
+    color: $error;
+    list-style: none;
+    @include media-mobile {
+      font-size: 10px;
+    }
+  }
+  &--file {
+    input {
+      display: none;
+    }
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 40px 15px 30px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 1.5;
+      white-space: nowrap;
+      font-family: $fontOS;
+      text-decoration: none;
+      color: $white;
+      background: transparent;
+      border: 1px solid rgb(255 255 255 / 0.3);
+      border-radius: 7px;
+      transition: $transition;
+      cursor: pointer;
+      @include media-laptop {
+        padding: 10px 34px 12px;
+        font-size: 14px;
+      }
+      @include media-hover {
+        color: $white;
+        background: $blue;
+        border-color: $blue;
+        .ui-button__icon {
+          color: $white;
+        }
+      }
+    }
+    .ui-input__icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 18px;
+    }
+  }
+}

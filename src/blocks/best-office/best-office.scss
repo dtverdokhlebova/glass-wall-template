@@ -1,0 +1,24 @@
+.best-office {
+  display: flex;
+  align-items: flex-end;
+  gap: 30px;
+  @include media-laptop {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  @include media-mobile {
+    flex-direction: row;
+    align-items: center;
+    max-width: 320px;
+  }
+  &__logo {
+    flex-shrink: 0;
+    width: 108px;
+    height: 117px;
+    @include media-laptop {
+      width: 58px;
+      height: 62px;
+    }
+  }
+}

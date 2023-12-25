@@ -1,0 +1,45 @@
+.ui-h2 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 46px;
+  line-height: 64px;
+  @include media-laptop {
+    font-size: min(30px, 7.24vw);
+    line-height: 1.33;
+  }
+}
+.ui-h3 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 55px;
+  @include media-laptop {
+    font-size: min(25px, 6.03vw);
+    line-height: 1.28;
+  }
+}
+.ui-h4 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 32px;
+  @include media-laptop {
+    font-size: min(22px, 5.31vw);
+    line-height: 1.454;
+  }
+}
+.ui-h5 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 32px;
+  @include media-laptop {
+    font-size: min(19px, 4.34vw);
+    line-height: 1.388;
+  }
+}
+[class*='ui-h'] {
+  &[class*='--font-secondary'] {
+    font-family: $fontOS;
+  }
+}

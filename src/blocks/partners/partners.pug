@@ -1,0 +1,29 @@
+mixin partners(mods)
+  -
+    const baseName = 'partners'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  -
+    const items =[
+      'partners_agc.svg',
+      'partners_pilkington.svg',
+      'partners_alutech.svg',
+      'partners_guardian_sunguard.svg',
+    ]
+
+  .partners(class=allMods)&attributes(attributes)
+    .partners__head
+      +ui-h4('30 заводов-партнёров', 'partners').ui-brown
+      +ui-p1('помогают нам быть лидерами в своем деле', '--semibold').ui-grey
+    .partners__main
+      each item in items
+        .partners__item
+          img(src=`img/svgs/${item}`, alt='')
+    block

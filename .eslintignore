@@ -1,0 +1,6 @@
+/build
+/gulp-tasks
+/src/libs
+
+gulpfile.mjs
+webpack.config.mjs

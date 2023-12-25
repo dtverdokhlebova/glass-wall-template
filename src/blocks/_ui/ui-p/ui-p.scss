@@ -1,0 +1,28 @@
+.ui-p1 {
+  font-size: 16px;
+  line-height: 25px;
+  font-family: $fontOS;
+  @include media-laptop {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+.ui-p2 {
+  font-size: 14px;
+  line-height: 20px;
+  font-family: $fontOS;
+}
+.ui-p3 {
+  font-size: 13px;
+  line-height: 18px;
+  font-family: $fontOS;
+  @include media-laptop {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+[class*='ui-p'] {
+  &[class*='--semibold'] {
+    font-weight: 600;
+  }
+}

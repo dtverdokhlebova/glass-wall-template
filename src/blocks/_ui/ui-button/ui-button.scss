@@ -1,0 +1,75 @@
+.ui-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 9px 22px 11px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  white-space: nowrap;
+  font-family: $fontOS;
+  text-decoration: none;
+  color: $white;
+  background: transparent;
+  border: 1px solid rgb(255 255 255 / 0.3);
+  border-radius: 7px;
+  transition: $transition;
+  cursor: pointer;
+  @include media-laptop {
+    padding: 10px 34px 12px;
+    font-size: 14px;
+  }
+  @include media-hover {
+    color: $white;
+    background: $blue;
+    border-color: $blue;
+    .ui-button__icon {
+      color: $white;
+    }
+  }
+  &__icon {
+    flex-shrink: 0;
+    width: 14px;
+    height: 12px;
+  }
+  &--pd-l {
+    padding: 13px 25px 15px;
+    @include media-laptop {
+      padding: 10px 18px 12px;
+    }
+    &.ui-button--icon {
+      padding-right: 18px;
+      @include media-laptop {
+        padding-right: 16px;
+      }
+    }
+  }
+  &--pd-xl {
+    padding: 14px 20px;
+    @include media-laptop {
+      padding: 11px 14px;
+    }
+  }
+  &--l-px-xs {
+    @include media-laptop {
+      padding-right: 18px;
+      padding-left: 18px;
+    }
+  }
+  &--dashed {
+    border-style: dashed;
+  }
+  &--dark {
+    border-color: $black;
+    background: $black;
+    .ui-button__icon {
+      color: $grey;
+    }
+  }
+  &--color-dark {
+    border-color: rgb(23 28 40 / 0.3);
+    color: $black;
+  }
+}

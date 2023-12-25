@@ -1,0 +1,58 @@
+.request {
+  &__row {
+    &:not(:first-child) {
+      margin-top: 30px;
+      @include media-laptop {
+        margin-top: 25px;
+      }
+    }
+    &--submit {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 20px;
+      @include media-mobile {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  }
+  &__item {
+    &--file {
+      display: flex;
+      gap: 20px;
+      @include media-mobile {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .ui-input {
+        align-self: center;
+        @include media-mobile {
+          align-self: stretch;
+        }
+      }
+      .ui-p2 {
+        max-width: 240px;
+        @include media-mobile {
+          max-width: unset;
+        }
+      }
+    }
+  }
+  &__ui-button {
+    min-width: 204px;
+    @include media-mobile {
+      width: 100%;
+    }
+  }
+  &__consent {
+    margin-top: 24px;
+    font: 600 12px/1.5 $fontOS;
+    color: $grey;
+    @include media-laptop {
+      margin-top: 12px;
+    }
+    a {
+      color: $blue;
+      text-decoration: none;
+    }
+  }
+}

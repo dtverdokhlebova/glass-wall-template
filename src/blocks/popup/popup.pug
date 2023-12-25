@@ -1,0 +1,40 @@
+mixin popup(mods)
+  -
+    const baseName = 'popup'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .popup(class=allMods)&attributes(attributes)
+    .popup__wrapper
+      .popup__close
+        button.popup__close-button
+          +svg('icon_cross')
+      .popup__content
+        block
+        +popup-foot
+
+mixin popup-foot(mods)
+  -
+    const baseName = 'popup-foot'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .popup-foot(class=allMods)&attributes(attributes)
+    .popup-foot__logo
+      +svg('icon_logo')
+    +ui-p2('', '--semibold').popup-foot__email
+      a(href='mailto:office@glass-wall.ru') office@glass-wall.ru
+    +ui-p2('', '--semibold')
+      a(href='tel:+7903516600') +7 903 651 66 00

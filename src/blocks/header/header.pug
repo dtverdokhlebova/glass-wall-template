@@ -1,0 +1,14 @@
+-
+  const headerLinks =[
+    { href: 'mailto:office@glass-wall.ru', text: 'office@glass-wall.ru', mods: 'header__link--first' },
+    { href: 'tel:+79036516600', text: '+7 903 651 66 00' },
+  ]
+
+header.header
+  .inner
+    .header__container
+      .header__logo
+        +svg('icon_logo')
+      each item in headerLinks
+        a.header__link(class=item.mods href=item.href) !{item.text}
+      +ui-button('Бесплатный расчет', 'header, --l-px-xs, --dark', true)(onclick='window.openPopup("#popup-request"); window.openTab(document.querySelector("#popup-tab-send-project"))')

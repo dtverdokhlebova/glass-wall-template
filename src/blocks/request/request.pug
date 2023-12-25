@@ -1,0 +1,56 @@
+mixin request(type, mods)
+  -
+    const baseName = 'request'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .request(class=allMods)&attributes(attributes)
+    <!-- если не нужна валидация parsley, то убрать [data-js-form-validation] -->
+    <!-- если не нужен parsley - можно не подключать jquery -->
+    <!-- чтобы убарть маску для телефона - убрать [data-mask] -->
+    <!-- чтобы убарть js для input file - убрать [data-input-file] -->
+    form.request__form(action='#' data-js-form-validation='')
+      case type
+        when 'send-project'
+          +section-head('--mb-xxs')
+            +ui-h2('Отправить проект на просчет', 'section-head')
+            +ui-p1('Отправьте проект и наши специалисты рассчитают стоимость и сроки реализации. Бесплатно проконсультируют по всем вопросам, дадут рекомендации и зафиксируют скидку 7%.', '--semibold').ui-grey
+          .request__container
+            .request__row
+              .request__item.request__item--file
+                +ui-input('file-send-project', 'request', 'file')(name='file')
+                +ui-p2(' Прикрепите архив .zip или&nbsp;отправьте на почту файлы office@glass-wall.ru', '--semibold').ui-grey
+            .request__row.request__row--submit
+              .request__item
+                +ui-input('phone-send-project', 'request')(required name='phone' data-mask='phone' data-parsley-length='[18, 18]' data-parsley-error-message='Некорректно заполнено поле')
+              .request__item
+                +ui-button('Заказать звонок', 'request, --pd-xl')(type='submit')
+            .request__consent  При нажатии кнопки «Заказать звонок» вы соглашаетесь с нашей
+              =' '
+              a(href='#') политикой конфиденциальности
+              |  и принимаете
+              =' '
+              a(href='#') пользовательское соглашение
+        default
+          +section-head('--mb-xxs')
+            +ui-h2('Получить консультацию', 'section-head')
+            +ui-p1('Оставьте ваш контактный номер телефона для связи и наш специалист свяжется с вами в ближайшее время и ответит на все интересующие вопросы', '--semibold').ui-grey
+          .request__container
+            .request__row.request__row--submit
+              .request__item
+                +ui-input('consultation-phone', 'request')(required name='phone' data-mask='phone' data-parsley-length='[18, 18]' data-parsley-error-message='Некорректно заполнено поле')
+              .request__item
+                +ui-button('Отправить проект', 'request, --pd-xl')(type='submit')
+            .request__consent  При нажатии кнопки «Отправить проект» вы соглашаетесь с нашей
+              =' '
+              a(href='#') политикой конфиденциальности
+              |  и принимаете
+              =' '
+              a(href='#') пользовательское соглашение
+    block

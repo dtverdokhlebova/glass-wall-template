@@ -1,0 +1,27 @@
+// fonts
+$font: 'Unbounded', 'Arial', sans-serif;
+$fontOS: 'Open Sans', 'Arial', sans-serif;
+
+// colors
+:root {
+  --white: #fff;
+  --black: #171c28;
+  --grey: #717a90;
+  --brown: #ecc78f;
+  --blue: #3b5bb0;
+  --error: #ee1e1e;
+}
+
+$white: var(--white);
+$grey: var(--grey);
+$black: var(--black);
+$brown: var(--brown);
+$blue: var(--blue);
+$error: var(--error);
+$transition: 0.2s cubic-bezier(0.61, 1, 0.88, 1);
+
+// media
+$mediaWidthLaptop: 1259px;
+// $mediaWidthLaptop: 1480px;
+$mediaWidthTablet: 979px;
+$mediaWidthMobile: 767px;

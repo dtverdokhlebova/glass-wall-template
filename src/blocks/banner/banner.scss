@@ -1,0 +1,44 @@
+.banner {
+  &__wrapper {
+    max-width: 867px;
+    margin: 0 auto;
+    @include media-laptop {
+      max-width: 732px;
+      margin: 0;
+    }
+  }
+  &__text {
+    &:not(:last-child) {
+      margin-bottom: 60px;
+      @include media-laptop {
+        margin-bottom: 50px;
+      }
+    }
+  }
+  &__ui-h2 {
+    &:not(:last-child) {
+      margin-bottom: 24px;
+      @include media-laptop {
+        margin-bottom: 12px;
+      }
+    }
+  }
+  &__ui-p1 {
+    max-width: 740px;
+    @include media-laptop {
+      max-width: 600px;
+    }
+    &:not(:last-child) {
+      margin-bottom: 36px;
+      @include media-laptop {
+        margin-bottom: 25px;
+      }
+    }
+  }
+  &__advantages {
+    max-width: 820px;
+    @include media-mobile {
+      max-width: 322px;
+    }
+  }
+}

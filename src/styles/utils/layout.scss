@@ -1,0 +1,103 @@
+:root {
+  --inner-pd: 20px;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+*:focus {
+  outline: none;
+}
+html {
+  box-sizing: border-box;
+  line-height: 1;
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  &.lock-scroll {
+    position: relative;
+    overflow: hidden;
+    body {
+      @include media-tablet {
+        position: relative;
+        overflow: hidden;
+      }
+    }
+  }
+}
+body {
+  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+}
+img {
+  display: block;
+  max-height: 100%;
+  max-width: 100%;
+  image-rendering: -webkit-optimize-contrast;
+}
+input,
+textarea,
+button {
+  font: inherit;
+  appearance: none;
+}
+a {
+  transition: ease 0.2s;
+}
+
+// defaults
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0 auto;
+  font-family: $font;
+  line-height: 1;
+  color: $black;
+}
+.inner {
+  max-width: 1490px;
+  margin: 0 auto;
+  padding: 0 var(--inner-pd);
+  @include media-laptop {
+    max-width: 1020px;
+  }
+}
+.main {
+  flex: 1 0;
+}
+.ui {
+  &-l-none {
+    @include media-laptop {
+      display: none;
+    }
+  }
+  &-none-l-inline {
+    display: none;
+    @include media-laptop {
+      display: inline;
+    }
+  }
+  &-white {
+    color: $white;
+  }
+  &-grey {
+    color: $grey;
+  }
+  &-brown {
+    color: $brown;
+  }
+  &-nowrap {
+    white-space: nowrap;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,46 @@
+.about {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 40px 0;
+  max-width: 1156px;
+  @include media-laptop {
+    max-width: unset;
+  }
+  @include media-mobile {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 35px;
+  }
+  &__item {
+    padding-right: 30px;
+    @include media-laptop {
+      padding-right: 40px;
+    }
+    @include media-mobile {
+      padding-right: 0;
+    }
+  }
+  &__subtitle {
+    &:not(:last-child) {
+      margin-bottom: 12px;
+      @include media-laptop {
+        margin-bottom: 8px;
+      }
+    }
+  }
+  &__ui-h4 {
+    &:not(:last-child) {
+      margin-bottom: 16px;
+      @include media-laptop {
+        margin-bottom: 5px;
+      }
+    }
+  }
+  sup {
+    position: relative;
+    top: -0.6em;
+    left: 2px;
+    vertical-align: baseline;
+    font-size: 60%;
+    line-height: 0;
+  }
+}

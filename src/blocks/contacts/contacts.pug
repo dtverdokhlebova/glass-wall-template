@@ -1,0 +1,42 @@
+mixin contacts(mods)
+  -
+    const baseName = 'contacts'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .contacts(class=allMods)&attributes(attributes)
+    .inner
+      .contacts__wrapper
+        .contacts__head
+          +ui-h2('Мы открыты к&nbsp;нестандартным проектам и&nbsp;сотрудничеству', 'contacts')
+          +ui-p1('Свяжитесь с нами любым удобным для вас способом', 'contacts, --semibold').ui-grey
+          +ui-button('', 'contacts', true)(onclick='window.openPopup("#popup-request"); window.openTab(document.querySelector("#popup-tab-send-project"))')
+            span.ui-l-none Заказать бесплатный расчет
+            span.ui-none-l-inline Бесплатный расчет
+        .contacts__main
+          .contacts__info
+            .contacts__logo
+              +svg('icon_logo')
+            +ui-h4('', '--semibold, --font-secondary').contacts__phone
+              a(href='tel:+7903516600') +7 903 651 66 00
+            +ui-p1('', '--semibold').contacts__email
+              a(href='mailto:office@glass-wall.ru') office@glass-wall.ru
+            +ui-p1('Москва, ул Россошанская, д. 6, метро Академика Янгеля', '--semibold').ui-grey
+          +ui-p3('', '--semibold').contacts__links.ui-grey
+            p
+              a(href='#') Политика конфиденциальности
+            p
+              a(href='#') Пользовательское соглашение
+    .contacts__decor.contacts__decor--1
+      img(src='img/contacts_decor_1.png', alt='')
+    .contacts__decor.contacts__decor--2
+      img(src='img/contacts_decor_2.png', alt='')
+    .contacts__decor.contacts__decor--3
+      img(src='img/contacts_decor_3.png', alt='')
+    block

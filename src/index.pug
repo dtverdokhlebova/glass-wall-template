@@ -1,0 +1,377 @@
+extends layouts/layout
+
+block variables
+  -
+    const pageName = 'main'
+    const pageTitle = 'Main'
+
+  -
+    const advantagesData1 ={
+      items: [
+        { title: 'Следим за инновациями',
+          descr: 'Постоянно в курсе современных тенденций архитектурного остекления и знаем как это реализовать',
+        },
+        { title: 'Для архитекторов',
+          descr: 'Рады работать с архитекторами и генподрядчиками на специальных взаимовыгодных условиях',
+        },
+        { title: 'Бесплатный замер',
+          descr: 'Бесплатно выедем на ваш объект, быстро сделаем замеры и рассчитаем конечную стоимость',
+        },
+        { title: 'Сертификаты и лицензии',
+          descr: 'Вся наша продукция имеет сертификаты и лицензии. Наличие СРО-допусков у компании',
+        },
+        { title: 'Заказ от 3 дней',
+          descr: 'Благодаря нашему опыту, в кратчайшие сроки реализуем ваш объект до полной готовности',
+        },
+        { title: 'Аккуратный монтаж',
+          descr: 'Без грязи, шума и пыли, без неудобств. Отлаженный процесс монтажа',
+        },
+      ]
+    }
+
+  -
+    const advantagesData3 ={
+      items: [
+        { mods: 'advantages__item--with-hover',
+          title: 'Нестандартные размеры',
+          descr: 'Изготовим нестандартные перегородки исключительно под ваши размеры и особенности помещения',
+        },
+        { mods: 'advantages__item--with-hover',
+          title: 'Закалённое стекло',
+          descr: 'Используем ударопрочное и долговечное закалённое стекло толщиной от 8 до 12 мм',
+        },
+        { mods: 'advantages__item--with-hover',
+          title: 'Фурнитура Great Hope',
+          descr: 'Используем только проверенную и&nbsp;качественную фурнитуру премиум-класса.',
+        },
+      ]
+    }
+
+  -
+    const estimateData1 = {
+      img: 'img/estimate_img.png',
+      decor: 'img/svgs/estimate_decor.svg',
+      h3: 'Бесплатный расчет стоимости вашего проекта',
+      p1: `Отправьте проект и наши специалисты рассчитают стоимость и&nbsp;сроки реализации.
+        Бесплатно проконсультируют по&nbsp;всем вопросам, дадут рекомендации.`,
+      actions: [
+        { text: 'У меня уже есть проект', mods: ', --dashed', onclick: 'window.openPopup("#popup-request"); window.openTab(document.querySelector("#popup-tab-send-project"))' },
+        { text: 'Мне нужна консультация', onclick: 'window.openPopup("#popup-request"); window.openTab(document.querySelector("#popup-tab-consultation"))' },
+      ]
+    }
+
+  -
+    const estimateData2 = {
+      img: 'img/estimate_img_2.png',
+      decor: 'img/svgs/estimate_decor.svg',
+      h3: 'Отправьте нам свой проект и получите гарантированную скидку&nbsp;7%',
+      p1: `Отправьте проект и наши специалисты рассчитают стоимость и сроки реализации. Бесплатно проконсультируют по всем вопросам, дадут рекомендации и зафиксируют скидку.`,
+      actions: [
+        { text: 'У меня уже есть проект', mods: ', --dashed', onclick: 'window.openPopup("#popup-request"); window.openTab(document.querySelector("#popup-tab-send-project"))' },
+        { text: 'Мне нужна консультация', onclick: 'window.openPopup("#popup-request"); window.openTab(document.querySelector("#popup-tab-consultation"))' },
+      ]
+    }
+
+  -
+    const accordionsItems =[
+      { text: 'На каком этапе лучше вызвать замерщика?' },
+      { text: 'Как подготовить помещение к монтажу перегородки от пола?' },
+      { text: 'Какое стекло лучше выбрать?' },
+      { text: 'Какая используется фурнитура?' },
+      { text: 'На каком этапе лучше вызвать замерщика?' },
+      { text: 'Как подготовить помещение к монтажу перегородки от пола?' },
+    ]
+
+  -
+    const solutionsData1 = [
+      { label: 'Архитектурное решение из моллированого стекла. Проект «Покровка 19»',
+        title: 'Гнутое стекло',
+        descr: 'Реализуем проекты из моллированного стекла различной формы. Моллирование — это процесс производства гнутого стекла путем деформации под воздействием температуры. Это позволяет реализовать самые смелые проекты и вписать стекло в любой интерьер. Наша компания не только качественно реализует ваш проект, но и рассчитает необходимые нагрузки и поможет подобрать варианты ещё на стадии предпроектных решений.',
+        features: {
+          advantagesMods: ', --solutions-col2',
+          items: [
+            { descr: 'Любая форма и&nbsp;радиус кривизны' },
+            { descr: 'Закалённое стекло <br>повышенной прочности' },
+          ]
+        },
+        button: 'Обсудить проект',
+        slides: [
+          { img: 'img/solutions/solutions-1-1.jpg' },
+          { img: 'img/solutions/solutions-1-1.jpg' },
+          { img: 'img/solutions/solutions-1-1.jpg' },
+          { img: 'img/solutions/solutions-1-1.jpg' },
+          { img: 'img/solutions/solutions-1-1.jpg' },
+        ],
+      },
+      { label: 'Архитектурное решение из моллированого стекла. Проект «Покровка 19»',
+        title: 'Цельностеклянные перегородки',
+        descr: 'Безопасный и эффективный метод разграничения пространства. Перегородки из цельного стекла обычно устанавливают там, где важен каждый квадратный метр. Они хорошо подойдут для выставочных и торговых залов, а также для офисных помещений.',
+        features: {
+          advantagesMods: ', --solutions-col2',
+          items: [
+            { descr: 'Герметичное соединение стекла' },
+            { descr: 'Закалённое стекло <br>повышенной прочности' },
+          ]
+        },
+        button: 'Обсудить проект',
+        slides: [
+          { img: 'img/solutions/solutions-1-2.jpg' },
+          { img: 'img/solutions/solutions-1-2.jpg' },
+          { img: 'img/solutions/solutions-1-2.jpg' },
+          { img: 'img/solutions/solutions-1-2.jpg' },
+          { img: 'img/solutions/solutions-1-2.jpg' },
+        ],
+      },
+      { label: 'Архитектурное решение из моллированого стекла. Проект «Покровка 19»',
+        title: 'Перегородки на алюминиевом профиле',
+        descr: 'Конструкция отличается легкостью и надежностью. Стеклянные перегородки отлично впишутся в любой интерьер помещения, улучшая его функциональность и эргономичность.',
+        features: {
+          advantagesMods: ', --solutions-col2',
+          items: [
+            { descr: 'Надёжный алюминиевый профиль' },
+            { descr: 'Большой выбор видов стекла и&nbsp;покраска профиля в&nbsp;любой цвет по&nbsp;каталогу&nbsp;RAL' },
+          ]
+        },
+        button: 'Обсудить проект',
+        slides: [
+          { img: 'img/solutions/solutions-1-3.jpg' },
+          { img: 'img/solutions/solutions-1-3.jpg' },
+          { img: 'img/solutions/solutions-1-3.jpg' },
+          { img: 'img/solutions/solutions-1-3.jpg' },
+          { img: 'img/solutions/solutions-1-3.jpg' },
+        ],
+      },
+      { label: 'Архитектурное решение из моллированого стекла. Проект «Покровка 19»',
+        title: 'Раздвижные перегородки',
+        descr: 'Позволяют максимально эффективно использовать внутреннее пространство помещения. С их помощью можно без усилий увеличить или наоборот разделить площадь на отдельные функциональные зоны.',
+        features: {
+          advantagesMods: ', --solutions-col2',
+          items: [
+            { descr: 'Долговечная фурнитура' },
+            { descr: 'Ситуативное зонирование пространства' },
+          ]
+        },
+        button: 'Обсудить проект',
+        slides: [
+          { img: 'img/solutions/solutions-1-4.jpg' },
+          { img: 'img/solutions/solutions-1-4.jpg' },
+          { img: 'img/solutions/solutions-1-4.jpg' },
+          { img: 'img/solutions/solutions-1-4.jpg' },
+          { img: 'img/solutions/solutions-1-4.jpg' },
+        ],
+      },
+      { label: 'Архитектурное решение из моллированого стекла. Проект «Покровка 19»',
+        title: 'Перегородки <span class="ui-nowrap">из smart-стекла</span>',
+        descr: 'Особенность smart-стекла состоит в том, что оно может менять свою прозрачность. Такой тип стекла идеально подойдет для офисов, переговорных и vip-комнат. Смарт стекло можно также использовать в виде экрана обратной проекции.',
+        features: {
+          advantagesMods: ', --solutions-col2',
+          items: [
+            { descr: 'Использование под обратную проекцию' },
+            { descr: 'Изменение прозрачности по&nbsp;нажатию кнопки' },
+          ]
+        },
+        button: 'Обсудить проект',
+        slides: [
+          { img: 'img/solutions/solutions-1-5.jpg' },
+          { img: 'img/solutions/solutions-1-5.jpg' },
+          { img: 'img/solutions/solutions-1-5.jpg' },
+          { img: 'img/solutions/solutions-1-5.jpg' },
+          { img: 'img/solutions/solutions-1-5.jpg' },
+        ],
+      },
+      { label: 'Архитектурное решение из моллированого стекла. Проект «Покровка 19»',
+        title: 'Стеклянные панели',
+        descr: 'Красивое, современное и эффектное решение для оформления интерьера офиса или любого другого пространства из закалённого стекла различной толщины. Стекло может быть окрашено в любой цвет и нанёсен рисунок методом фотопечати керамическими красками',
+        features: {
+          advantagesMods: ', --solutions-col2',
+          items: [
+            { descr: 'Длительная эксплуатация' },
+            { descr: 'Не оседают микробы и&nbsp;не&nbsp;развивается плесень' },
+          ]
+        },
+        button: 'Обсудить проект',
+        slides: [
+          { img: 'img/solutions/solutions-1-6.jpg' },
+          { img: 'img/solutions/solutions-1-6.jpg' },
+          { img: 'img/solutions/solutions-1-6.jpg' },
+          { img: 'img/solutions/solutions-1-6.jpg' },
+          { img: 'img/solutions/solutions-1-6.jpg' },
+        ],
+      },
+    ]
+
+  -
+    const solutionsData2 = [
+      { class: 'solutions__item--dark solutions__item--content-va-center',
+        count: false,
+        title: 'Головной офис БинБанка на Известковом переулке',
+        descr: 'Замечательный пример исполнения и использования стеклянных декоративных панелей',
+        features: {
+          advantagesMods: ', --solutions-col3',
+          class: 'ui-grey',
+          items: [
+            { descr: '1 600 м<sup>2</sup>', mods: 'advantages__item--line-s advantages__item--with-hover-white', },
+            { descr: '1 месяц', mods: 'advantages__item--line-s advantages__item--with-hover-white', },
+            { descr: 'Стеклянные панели', mods: 'advantages__item--line-s advantages__item--with-hover-white', },
+          ]
+        },
+        videoPreview: 'img/solutions/solutions_video_preview_1.jpg',
+        thumbs: true,
+        slides: [
+          { img: 'img/solutions/solutions-2-1.jpg' },
+          { img: 'img/solutions/solutions-2-2.jpg' },
+          { img: 'img/solutions/solutions-2-3.jpg' },
+          { img: 'img/solutions/solutions-2-4.jpg' },
+          { img: 'img/solutions/solutions-2-5.jpg' },
+          { img: 'img/solutions/solutions-2-6.jpg' },
+          { img: 'img/solutions/solutions-2-7.jpg' },
+        ],
+      },
+    ]
+
+  -
+    const solutionsData3 = [
+      { class: 'solutions__item--dark solutions__item--content-va-center',
+        count: false,
+        title: 'Культурно-образовательный жилой кластер Russian Design District',
+        descr: 'Множество нестандартных решений из стекла по проектам известных российских дизайнеров и архитекторов',
+        features: {
+          advantagesMods: ', --solutions-col3',
+          class: 'ui-grey',
+          items: [
+            { descr: '4 000 м<sup>2</sup>', mods: 'advantages__item--line-s advantages__item--with-hover-white', },
+            { descr: '3 месяца', mods: 'advantages__item--line-s advantages__item--with-hover-white', },
+            { descr: 'Нестандартные решения', mods: 'advantages__item--line-s advantages__item--with-hover-white', },
+          ]
+        },
+        thumbs: true,
+        slides: [
+          { img: 'img/solutions/solutions-3-1.jpg' },
+          { img: 'img/solutions/solutions-3-2.jpg' },
+          { img: 'img/solutions/solutions-3-3.jpg' },
+          { img: 'img/solutions/solutions-3-4.jpg' },
+          { img: 'img/solutions/solutions-3-5.jpg' },
+          { img: 'img/solutions/solutions-3-6.jpg' },
+          { img: 'img/solutions/solutions-3-7.jpg' },
+        ],
+      },
+    ]
+
+  -
+    const solutionsData4 = [
+      { class: 'solutions__item--dark solutions__item--content-va-center',
+        count: false,
+        title: 'Офис продаж ЛСР.Недвижимость-М',
+        descr: 'Выполнить работы в срок удалось благодаря высокому уровню компетентности наших инженеров и монтажных бригад',
+        features: {
+          advantagesMods: ', --solutions-col3',
+          class: 'ui-grey',
+          items: [
+            { descr: '2 000 м<sup>2</sup>', mods: 'advantages__item--line-s advantages__item--with-hover-white', },
+            { descr: '1 месяц', mods: 'advantages__item--line-s advantages__item--with-hover-white', },
+            { descr: 'Нестандартные решения', mods: 'advantages__item--line-s advantages__item--with-hover-white', },
+          ]
+        },
+        videoPreview: 'img/solutions/solutions_video_preview_3.jpg',
+        thumbs: true,
+        slides: [
+          { img: 'img/solutions/solutions-4-1.jpg' },
+          { img: 'img/solutions/solutions-4-2.jpg' },
+          { img: 'img/solutions/solutions-4-3.jpg' },
+          { img: 'img/solutions/solutions-4-4.jpg' },
+          { img: 'img/solutions/solutions-4-5.jpg' },
+          { img: 'img/solutions/solutions-4-6.jpg' },
+          { img: 'img/solutions/solutions-4-7.jpg' },
+        ],
+      },
+    ]
+
+  -
+    const tabHeadingsPopup =[
+      { text: 'Получить консультацию', id: 'popup-tab-consultation' },
+      { text: 'Отправить проект на&nbsp;просчет', id: 'popup-tab-send-project'  },
+    ]
+
+block content
+  main.main
+    +section('--bg-start')
+      .section__container
+        +banner
+        +section
+          .inner
+            +estimate(estimateData1)
+        +section('--mt-l')
+          .inner
+            +advantages(advantagesData1, '--main').ui-white
+      .section__bg-img
+        img(src='img/page-bg.jpg', alt='')
+    +section('--mt0, --pt-s, --main')
+      +section
+        .inner
+          +section-head('--max-w-s, --ml-20')
+            +ui-h2('Решения из стекла для вашего офиса, магазина, производства и общественных пространств', 'section-head')
+            +ui-p1('Вот лишь некоторые классические задачи, которые мы сможем реализовать', '--semibold')
+          +solutions(solutionsData1).js-solutions-animation
+      +section('--mt-l').following-content
+        .inner
+          +advantages(advantagesData3, '--col5')
+      +section('--mt-xs, --bg').ui-white
+        +section
+          .inner
+            +section-head('--experience')
+              +section-head
+                +ui-h2('Уникальный опыт', 'section-head')
+                +ui-p1('За 14 лет нашими специалистами выполнен огромный объем работы, накоплен уникальный опыт реализации нестандартных проектов. Вы можете быть уверены, что мы сможем реализовать проект вашей мечты согласно проекту и точно в срок.', '--semibold').ui-grey
+              +best-office
+            +solutions(solutionsData2)
+        +section('--mt-xxxs')
+          .inner
+            +about
+        +section('--mt-xxxs')
+          .inner
+            +solutions(solutionsData3)
+        +section('--mt-xxxs')
+          .inner
+            +partners
+        +section('--mt-xxxs')
+          .inner
+            +solutions(solutionsData4)
+      +section('--under-bg')
+        .inner
+          +estimate(estimateData2, '--imgs-rigth')
+      +section('--mt-s')
+        .inner
+          +section-head('--max-w-xxs, --ml-20')
+            +ui-h2('Как мы работаем', 'section-head')
+            +ui-p1('Имеем отлаженный процесс работы, позволяющий реализовать проект качественно и в срок', '--semibold')
+          +how-working
+      +section('--mt-xxs')
+        .inner
+          +section-head('--max-w-xs, --ml-20')
+            +ui-h2('Ответы на частые вопросы', 'section-head')
+          +accordions
+            each item in accordionsItems
+              +accordions-item(item.text)
+                +ui-p1('', '--semibold')
+                  | Бригада замерщиков выезжает на объект в удобное для вас время, делает все замеры и изучает особенности пространства
+    +section('--mt0')
+      +contacts
+    +phone-mob
+  +popup()#popup-request
+    +tabs-head(tabHeadingsPopup)(data-group='tabs-popup')
+    +tabs-body()(data-group='tabs-popup')
+      +tabs-item.active
+        +request
+      +tabs-item
+        +request('send-project')
+    br
+    +ui-button('Показать "Спасибо"')(onclick='window.closePopup("#popup-request"); window.openPopup("#popup-thank");')
+
+  +popup()#popup-thank
+    +section-head('--mb-0')
+      +ui-h2('Спасибо!', 'section-head')
+      +ui-p1('Мы свяжемся с вами в ближайшее время.', '--semibold').ui-grey
+
+  +popup('--content-pd-xs')#popup-video
+    #video1.popup-video
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/nqye02H_H6I?si=VPIUNPqLGg7ZqUEp&amp;controls=0&amp;start=40" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

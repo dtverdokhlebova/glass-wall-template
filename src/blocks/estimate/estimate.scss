@@ -1,0 +1,124 @@
+.estimate {
+  position: relative;
+  min-height: 340px;
+  padding: 96px 65px 90px 582px;
+  color: $white;
+  background: #2c313e;
+  border-radius: 10px;
+  box-shadow: 0 15px 50px 0 rgb(0 14 48 / 0.3);
+  overflow: hidden;
+  @include media-laptop {
+    min-height: 264px;
+    padding: 47px 35px 50px 380px;
+  }
+  @include media-mobile {
+    min-height: unset;
+    margin: 0 calc(var(--inner-pd) * -1);
+    padding: 30px var(--inner-pd) 194px;
+  }
+  &__decor {
+    position: absolute;
+    bottom: -150px;
+    left: -238px;
+    max-width: 743px;
+    @include media-laptop {
+      bottom: -127px;
+      left: -268px;
+      max-width: 580px;
+    }
+    @include media-mobile {
+      display: none;
+    }
+  }
+  &__img {
+    position: absolute;
+    bottom: 0;
+    left: -38px;
+    z-index: 1;
+    max-width: 546px;
+    @include media-laptop {
+      left: -90px;
+      max-width: 428px;
+    }
+    @include media-mobile {
+      left: var(--inner-pd);
+      transform: none;
+      max-width: 265px;
+    }
+  }
+  &__ui-h3 {
+    max-width: 706px;
+    @include media-laptop {
+      max-width: 455px;
+    }
+    @include media-mobile {
+      max-width: unset;
+    }
+    &:not(:last-child) {
+      margin-bottom: 17px;
+    }
+  }
+  &__ui-p1 {
+    max-width: 706px;
+    @include media-laptop {
+      max-width: 455px;
+    }
+    @include media-mobile {
+      max-width: unset;
+    }
+    &:not(:last-child) {
+      margin-bottom: 33px;
+      @include media-laptop {
+        margin-bottom: 25px;
+      }
+    }
+  }
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    @include media-mobile {
+      flex-direction: column;
+      width: fit-content;
+    }
+  }
+  &--imgs-rigth {
+    min-height: 480px;
+    padding: 96px 540px 115px 145px;
+    @include media-laptop {
+      min-height: 310px;
+      padding: 43px 340px 54px 40px;
+    }
+    @include media-mobile {
+      min-height: unset;
+      padding: 30px var(--inner-pd) 194px;
+    }
+    .estimate {
+      &__decor {
+        right: -435px;
+        bottom: -44px;
+        left: auto;
+        transform: scale(-1, 1);
+        @include media-laptop {
+          right: -296px;
+          bottom: -27px;
+          max-width: 468px;
+        }
+      }
+      &__img {
+        right: -250px;
+        left: auto;
+        max-width: 763px;
+        @include media-laptop {
+          right: -158px;
+          max-width: 480px;
+        }
+        @include media-mobile {
+          right: unset;
+          left: var(--inner-pd);
+          max-width: 265px;
+        }
+      }
+    }
+  }
+}

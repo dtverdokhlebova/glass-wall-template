@@ -1,0 +1,24 @@
+mixin estimate(data, mods)
+  -
+    const baseName = 'estimate'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .estimate(class=allMods)&attributes(attributes)
+    .estimate__decor
+      img(src=data.decor, alt='')
+    .estimate__img
+      img(src=data.img, alt='')
+    .estimate__content
+      +ui-h3(data.h3, 'estimate')
+      +ui-p1(data.p1, 'estimate, --semibold').ui-grey
+      .estimate__actions
+        each button in data.actions
+          +ui-button(button.text, `estimate ${button.mods ? button.mods : ''}`)(onclick=button.onclick)
+    block

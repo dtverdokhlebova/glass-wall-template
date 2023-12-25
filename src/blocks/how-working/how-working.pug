@@ -1,0 +1,42 @@
+mixin how-working(mods)
+  -
+    const baseName = 'how-working'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  -
+    const data =[
+      { title: 'Первый контакт',
+        descr: 'Вы оставляете заявку, отправляете проект на просчет или связываетесь любым удобным способом',
+      },
+      { title: 'Уточнение деталей',
+        descr: 'Специалист нашей компании связывается с вами для уточнения подробностей проекта, консультирует по всем вопросам',
+      },
+      { title: 'Бесплатный замер',
+        descr: 'Бригада замерщиков выезжает на объект в удобное для вас время, делает все замеры и изучает особенности пространства',
+      },
+      { title: 'Составление сметы',
+        descr: 'На основе замеров, ваших пожеланий и бюджета, составляется смета проекта',
+      },
+      { title: 'Реализация',
+        descr: 'Конструкция изготавливается и устанавливается командой Glass Wall',
+      },
+      { title: 'Обслуживание',
+        descr: 'Вы получаете 12-месячную гарантию на выполненные работы гарантийное и после гарантийное обслуживание',
+      },
+    ]
+
+  .how-working(class=allMods)&attributes(attributes)
+    each item, index in data
+      .how-working__item
+        .how-working__count=(index+1)
+        .how-working__content
+          +ui-h5(item.title, 'how-working')
+          +ui-p1(item.descr, 'how-working, --semibold')
+    block

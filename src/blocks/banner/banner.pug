@@ -1,0 +1,41 @@
+mixin banner(mods)
+  -
+    const baseName = 'banner'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  -
+    const advantagesData2 = {
+      items: [
+        {
+          descr: 'Индивидуальное изготовление',
+        },
+        {
+          descr: 'Моллированное (гнутое) стекло',
+        },
+        {
+          descr: 'Безрамное (цельное) стекло',
+        },
+        {
+          descr: 'Гарантия 12&nbsp;месяцев',
+        },
+      ]
+    }
+
+  .banner.ui-white(class=allMods)&attributes(attributes)
+    .inner
+      .banner__wrapper
+        .banner__text
+          +ui-h2('Стеклянные перегородки и&nbsp;архитектурное стекло любой сложности', 'banner', 'h1')
+          +ui-p1('Оперативно изготовим и&nbsp;установим под&nbsp;ваш дизайн-проект любые интерьерные и&nbsp;архитектурные решения из&nbsp;стекла. С&nbsp;гарантией и&nbsp;большим опытом', 'banner, --semibold')
+          +ui-button('', 'banner, --pd-l, --icon, --dark', true)(onclick='window.openPopup("#popup-request"); window.openTab(document.querySelector("#popup-tab-send-project"))')
+            span.ui-l-none Заказать бесплатный расчет
+            span.ui-none-l-inline Бесплатный расчет
+        +advantages(advantagesData2, 'banner, --col4')
+    block

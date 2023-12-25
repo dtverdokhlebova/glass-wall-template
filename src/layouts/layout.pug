@@ -1,0 +1,26 @@
+block variables
+include ../blocks/mixins
+
+doctype html
+html(lang='ru')
+  block head
+    head
+      meta(charset='utf-8')
+      title=pageTitle
+      meta(content='width=device-width, initial-scale=1' name='viewport')
+      meta(content='ie=edge' http-equiv='x-ua-compatible')
+      link(rel='icon' href='/img/svgs/favicon.svg')
+      link(rel='stylesheet' href='css/style.css')
+  body
+    .wrapper
+      block header
+        include ../blocks/header/header
+      block content
+    block scripts
+      script(src='libs/jquery/jquery.js')
+      script(src='libs/imask/imask.js')
+      script(src='libs/parsley/parsley.js')
+      script(src='libs/swiper/swiper.js')
+      script(src='libs/gsap/gsap.min.js')
+      script(src='libs/gsap/ScrollTrigger.min.js')
+      script(src='js/index.js')

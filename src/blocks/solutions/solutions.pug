@@ -1,0 +1,60 @@
+mixin solutions(data, mods)
+  -
+    const baseName = 'solutions'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .solutions(class=allMods)&attributes(attributes)
+    each item, index in data
+      .solutions__item(class=item.class)
+        if item.label
+          a.solutions__label(href='#') !{item.label}
+        .solutions__slider
+          .solutions__slider-main(class=item.thumbs ? 'solutions__slider-main--min-h-s' : '')
+            .swiper
+              .swiper-wrapper
+                each slide in item.slides
+                  .solutions__slide.swiper-slide
+                    .solutions__img
+                      img(src=slide.img, alt='')
+              .swiper-button-prev
+                +svg('icon_arrow_prev')
+              .swiper-button-next
+                +svg('icon_arrow_next')
+              .swiper-pagination
+          if item.thumbs
+            .solutions__thumbs
+              each slide in item.slides
+                .solutions__thumbs-item
+                  .solutions__thumbs-img
+                    img(src=slide.img, alt='')
+        .solutions__content
+          if item.count !== false
+            .solutions__count.ui-grey
+              =(index+1)
+              |  /
+              =' '
+              =data.length
+          +ui-h3(item.title, 'solutions')
+          +ui-p1(item.descr, 'solutions, --semibold').ui-grey
+          +advantages(item.features, `solutions ${item.features.advantagesMods}`)
+          if item.button
+            +ui-button(item.button, 'solutions, --pd-l, --icon, --color-dark', true)(onclick='window.openPopup("#popup-request"); window.openTab(document.querySelector("#popup-tab-consultation"))')
+          if item.videoPreview
+            button.solutions__video(onclick='window.openPopup("#popup-video"); window.playVideo(document.querySelector("#video1"))')
+              .solutions__video-preview
+                .solutions__video-img
+                  img(src=item.videoPreview, alt='')
+                .solutions__video-button
+                  +svg('icon_play')
+              .solutions__video-text
+                .solutions__video-icon
+                  +svg('icon_camera')
+                +ui-p1('Видео <br>о проекте', '--medium')
+    block

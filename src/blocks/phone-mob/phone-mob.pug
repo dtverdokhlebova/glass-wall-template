@@ -1,0 +1,17 @@
+mixin phone-mob(mods)
+  -
+    const baseName = 'phone-mob'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  a.phone-mob(class=allMods href='tel:+79036516600')&attributes(attributes)
+    .phone-mob__text +7 903 651 66 00
+    .phone-mob__icon
+      +svg('icon_phone')
+    block

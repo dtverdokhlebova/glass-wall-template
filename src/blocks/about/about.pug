@@ -1,0 +1,30 @@
+mixin about(mods)
+  -
+    const baseName = 'about'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  -
+    const items =[
+      { subtitle: 'Около', value: '14', valueDescr: ' лет', descr: 'компания присутствует на&nbsp;рынке', },
+      { subtitle: 'Свыше', value: '12000', valueDescr: ' м<sup>2</sup>', descr: 'спроектировано специалистами компании с&nbsp;2009&nbsp;года', },
+      { subtitle: 'До', value: '2000', valueDescr: ' м<sup>2</sup>', descr: 'перегородок устанавливается ежемесячно', },
+      { subtitle: 'До', value: '2000', descr: 'довольных клиентов воплотили свои идеи в&nbsp;жизнь с&nbsp;нашей помощью', },
+    ]
+
+  .about(class=allMods)&attributes(attributes)
+    each item in items
+      .about__item
+        +ui-p1(item.subtitle, '--semibold').about__subtitle.ui-grey
+        +ui-h4('', 'about').ui-brown
+          span.about__value(data-value=item.value) -
+          | !{item.valueDescr}
+
+        +ui-p1(item.descr, '--semibold').ui-grey
+    block

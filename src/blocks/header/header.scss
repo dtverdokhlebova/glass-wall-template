@@ -1,0 +1,72 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  padding: 50px 0 20px;
+  color: $white;
+  transition: $transition;
+  @include media-laptop {
+    padding: 22px 0 15px;
+  }
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    @include media-laptop {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @include media-mobile {
+      display: flex;
+      gap: 10px;
+    }
+  }
+  &__logo {
+    width: 155px;
+    height: 48px;
+    @include media-laptop {
+      width: 125px;
+      height: 39px;
+    }
+  }
+  &__link {
+    width: fit-content;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 25px;
+    font-family: $fontOS;
+    text-decoration: none;
+    color: inherit;
+    transition: $transition;
+    @include media-laptop {
+      font-size: 14px;
+    }
+    @include media-mobile {
+      display: none;
+    }
+    @include media-hover {
+      color: $black;
+    }
+    &--first {
+      grid-column-start: 3;
+      @include media-laptop {
+        grid-column: unset;
+      }
+    }
+  }
+  &__ui-button {
+    margin-left: auto;
+  }
+  &--fixed {
+    position: fixed;
+    transform: translateY(-30px);
+    color: $black;
+    background: rgb(255 255 255 / 0.6);
+    border-bottom: 1px solid rgb(255 255 255 / 0.8);
+    backdrop-filter: blur(7.5px);
+    @include media-laptop {
+      transform: translateY(-5px);
+    }
+  }
+}
