@@ -3,13 +3,13 @@
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 76px 0;
   @include media-laptop {
-    max-width: 732px;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 35px 0;
   }
-  @include media-mobile {
+  @include media-tablet {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 23px 20px;
+    max-width: unset;
   }
   &__item {
     display: grid;
@@ -17,7 +17,7 @@
     @include media-laptop {
       padding-right: 44px;
     }
-    @include media-mobile {
+    @include media-tablet {
       padding-right: 0;
     }
     &:nth-child(3n - 1) {
@@ -29,6 +29,14 @@
     &:nth-child(3n) {
       grid-column: 5/5;
       @include media-laptop {
+        grid-column: unset;
+      }
+    }
+    &:nth-child(3n + 1) {
+      @include media-laptop {
+        grid-column: 1/2;
+      }
+      @include media-tablet {
         grid-column: unset;
       }
     }

@@ -1,4 +1,8 @@
 .section {
+  position: relative;
+  &__container {
+    position: relative;
+  }
   &__bg-img {
     position: fixed;
     inset: 0;
@@ -93,7 +97,7 @@
     position: relative;
     z-index: 20;
     padding-bottom: 140px;
-    background: #f6f7fc;
+    background-color: #f6f7fc;
     @include media-laptop {
       padding-bottom: 130px;
     }
@@ -114,7 +118,7 @@
   }
   &--bg {
     padding: 125px 0 430px;
-    background: $black;
+    background-color: $black;
     @include media-laptop {
       padding: 60px 0 240px;
     }

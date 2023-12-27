@@ -49,7 +49,7 @@
     align-items: end;
     grid-template-columns: 1fr 395px;
     gap: 50px;
-    padding-right: 36px;
+    padding-right: 33px;
     @include media-laptop {
       grid-template-columns: 1fr 240px;
       padding-right: 0;

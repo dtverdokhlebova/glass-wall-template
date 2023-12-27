@@ -25,13 +25,14 @@ mixin request(type, mods)
             .request__row
               .request__item.request__item--file
                 +ui-input('file-send-project', 'request', 'file')(name='file')
-                +ui-p2(' Прикрепите архив .zip или&nbsp;отправьте на почту файлы office@glass-wall.ru', '--semibold').ui-grey
-            .request__row.request__row--submit
+                +ui-p2('Прикрепите архив .zip или&nbsp;отправьте на почту файлы office@glass-wall.ru', '--semibold').ui-grey
+            .request__row.request__row--al-end.request__row--submit
               .request__item
-                +ui-input('phone-send-project', 'request')(required name='phone' data-mask='phone' data-parsley-length='[18, 18]' data-parsley-error-message='Некорректно заполнено поле')
+                +ui-p1('Телефон для связи:', '--semibold').request__label
+                +ui-input('phone-send-project', 'request')(required name='phone' data-mask='phone' data-parsley-error-message='Некорректно заполнено поле')
               .request__item
-                +ui-button('Заказать звонок', 'request, --pd-xl')(type='submit')
-            .request__consent  При нажатии кнопки «Заказать звонок» вы соглашаетесь с нашей
+                +ui-button('Отправить проект', 'request, --pd-xl')(type='submit')
+            .request__consent  При нажатии кнопки «Отправить проект» вы соглашаетесь с нашей
               =' '
               a(href='#') политикой конфиденциальности
               |  и принимаете
@@ -44,10 +45,10 @@ mixin request(type, mods)
           .request__container
             .request__row.request__row--submit
               .request__item
-                +ui-input('consultation-phone', 'request')(required name='phone' data-mask='phone' data-parsley-length='[18, 18]' data-parsley-error-message='Некорректно заполнено поле')
+                +ui-input('consultation-phone', 'request')(required name='phone' data-mask='phone' data-parsley-error-message='Некорректно заполнено поле')
               .request__item
-                +ui-button('Отправить проект', 'request, --pd-xl')(type='submit')
-            .request__consent  При нажатии кнопки «Отправить проект» вы соглашаетесь с нашей
+                +ui-button('Заказать звонок', 'request, --pd-xl')(type='submit')
+            .request__consent  При нажатии кнопки «Заказать звонок» вы соглашаетесь с нашей
               =' '
               a(href='#') политикой конфиденциальности
               |  и принимаете

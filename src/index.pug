@@ -295,7 +295,8 @@ block variables
 block content
   main.main
     +section('--bg-start')
-      .section__container
+      +page-grid('--start')
+      +section('--mt0')
         +banner
         +section
           .inner
@@ -306,7 +307,8 @@ block content
       .section__bg-img
         img(src='img/page-bg.jpg', alt='')
     +section('--mt0, --pt-s, --main')
-      +section
+      +page-grid('--grey')
+      //- +section
         .inner
           +section-head('--max-w-s, --ml-20')
             +ui-h2('Решения из стекла для вашего офиса, магазина, производства и общественных пространств', 'section-head')
@@ -316,6 +318,7 @@ block content
         .inner
           +advantages(advantagesData3, '--col5')
       +section('--mt-xs, --bg').ui-white
+        +page-grid('--black')
         +section
           .inner
             +section-head('--experience')

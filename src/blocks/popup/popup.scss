@@ -25,6 +25,7 @@
     color: $white;
     background: $black;
     border-radius: 10px;
+    box-shadow: 0 60px 100px 0 rgb(0 8 28 / 0.6);
     transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
     @include media-laptop {
       max-width: 664px;

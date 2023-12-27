@@ -128,7 +128,14 @@ function uiInput() {
   inputFiles()
   for (const input of document.querySelectorAll('[data-mask=phone]')) {
     IMask(input, {
-      mask: '+{7} (000) 000-00-00'
+      mask: '+7 num',
+      lazy: false,
+      blocks: {
+        'num': {
+          mask: '(000) 000-00-00',
+          lazy: true
+        }
+      }
     })
   }
 }
@@ -281,12 +288,18 @@ function popup() {
     popupElement.querySelector('.popup__close-button').addEventListener('click', function () {
       popupElement.classList.remove('active')
       document.querySelector('html').classList.remove('lock-scroll')
+      if (popupElement.querySelector('.popup-video')) {
+        window.stopVideo(popupElement.querySelector('.popup-video'))
+      }
     })
 
     popupElement.addEventListener('click', (event) => {
       if (event.target === popupElement) {
         popupElement.classList.remove('active')
         document.querySelector('html').classList.remove('lock-scroll')
+        if (popupElement.querySelector('.popup-video')) {
+          window.stopVideo(popupElement.querySelector('.popup-video'))
+        }
       }
     })
   }
@@ -304,6 +317,9 @@ function popup() {
     if (popupElement) {
       document.querySelector(element).classList.remove('active')
       document.querySelector('html').classList.remove('lock-scroll')
+      if (popupElement.querySelector('.popup-video')) {
+        window.stopVideo(popupElement.querySelector('.popup-video'))
+      }
     }
   }
 }
@@ -320,7 +336,7 @@ function solutions() {
 
     const sliderSwiper = new Swiper(slider, {
       slidesPerView: 1,
-      loop: true,
+      rewind: true,
       speed: 500,
       spaceBetween: 5,
       autoplay: {
@@ -401,5 +417,11 @@ function video() {
     const iframe = element.querySelector('iframe')
     const iframeSource = iframe.getAttribute('src')
     iframe.src = `${iframeSource}&autoplay=1`
+  }
+
+  window.stopVideo = function (element) {
+    const iframe = element.querySelector('iframe')
+    const iframeSource = iframe.getAttribute('src')
+    iframe.src = `${iframeSource.replace('&autoplay=1', '')}&enablejsapi=1`
   }
 }

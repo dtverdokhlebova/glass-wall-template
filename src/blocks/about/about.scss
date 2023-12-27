@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 40px 0;
-  max-width: 1156px;
+  max-width: 1160px;
   @include media-laptop {
     max-width: unset;
   }

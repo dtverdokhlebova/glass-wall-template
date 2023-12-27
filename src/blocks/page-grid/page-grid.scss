@@ -1,0 +1,39 @@
+.page-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  @include media-tablet {
+    display: none;
+  }
+  .inner {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+  }
+  span {
+    width: 1px;
+    height: 100%;
+    &:last-child {
+      @include media-laptop {
+        display: none;
+      }
+    }
+  }
+  &--start {
+    span {
+      background: #fff;
+      opacity: 0.1;
+    }
+  }
+  &--grey {
+    span {
+      background: #e5e7ef;
+    }
+  }
+  &--black {
+    span {
+      background: #202737;
+    }
+  }
+}
