@@ -336,7 +336,7 @@ function solutions() {
 
     const sliderSwiper = new Swiper(slider, {
       slidesPerView: 1,
-      rewind: true,
+      loop: true,
       speed: 500,
       spaceBetween: 5,
       autoplay: {
@@ -357,7 +357,7 @@ function solutions() {
         },
         slideChange(swiper) {
           if (thumb) {
-            const activeIndex = swiper.activeIndex
+            const activeIndex = swiper.realIndex
             const items = thumb.querySelectorAll('.solutions__thumbs-item')
             for (const item of items) {
               item.classList.remove('active')
@@ -373,7 +373,7 @@ function solutions() {
       for (const item of items) {
         item.addEventListener('click', (event) => {
           const index = [...event.target.parentNode.children].indexOf(event.target)
-          sliderSwiper.slideTo(index)
+          sliderSwiper.slideToLoop(index)
         })
       }
     }
